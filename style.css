@@ -1,0 +1,46 @@
+* {
+    font-size: 36px;
+    text-align: center;
+    /* May change */
+}
+
+.calculator {
+    width: 500px;
+    margin: 100px auto 0 auto;
+}
+
+.container-a, .container-b, .container-c {
+    display: flex;
+    justify-content: center;
+}
+
+.container-c {
+    flex-direction: column;
+    border: 1px solid grey;
+}
+
+.display-b {
+    flex-basis: 20px;
+    padding: 30px;
+    text-align: end;
+    font-size: 30px;
+}
+
+.display-a {
+    flex-basis: 25px;
+    padding: 30px;
+    text-align: end;
+    font-size: 40px;
+}
+
+.box {
+    border: 1px solid grey;
+    flex-basis: 125px;
+    padding: 25px;
+}
+
+.clear, .delete {
+    border: 1px solid grey;
+    flex-basis: 250px;
+    padding: 25px;
+}
