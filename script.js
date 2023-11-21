@@ -2,16 +2,24 @@
 
 const num_buttons = document.querySelectorAll('.box');
 
+const o_buttons = document.querySelectorAll('.box-o');
+
+const eq_button = document.querySelector('.box-eq');
+
 const display_b = document.querySelector('.display-b');
 
 const display_a = document.querySelector('.display-a');
 
 
 
+// Debounce variable
+let num_ed = false;
+
+
 // Operation variables
 let num1 = "";
 let num2 = "";
-let operator = "";
+let operator;
 
 
 
@@ -21,19 +29,31 @@ let operator = "";
 // Functions
 
 function operate(num1, operator, num2) {
-    
+    if (operator == '+') {
+        return num1 + num2;
+    } else if (operator == '-') {
+        return num1 - num2;
+    } else if (operator == '*') {
+        return num1 * num2;
+    } else if (operator == '/') {
+        return num1 / num2;
+    } else {
+        return 'ERROR';
+    }
 };
-
-// function getNum1(num) {
-//     return num;
-// };
 
 
 num_buttons.forEach(button => {
     button.addEventListener('click', () => {
-        num1 += button.value;
+        if (num_ed == false) {
+            num1 += button.value;
 
-        console.log(num1);
+            console.log(num1);
+        } else {
+            num2 += button.value;
+            console.log(num2);
+        }
+    
     });
 });
 
@@ -41,27 +61,31 @@ num_buttons.forEach(button => {
 
 
 
-// Needs rework
-// num_buttons.forEach(button => {
-//     button.addEventListener('click', () => {
-//         let num1_dis = '';
 
-//         // Case that button's value is a number
-//         if (display_a.textContent == 0) { // Might break later on
-//             display_a.textContent = button.value;
-//             num1_dis = button.value;
-//         }
-//         else {
-//             display_a.textContent += button.value;
-//             num1_dis += button.value;
-//         }
+o_buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        num_ed = true;
+        operator = button.value;
 
-//         // Case that button's value is an operator
-//         if (['*', '/', '+', '-'].includes(button.value)) {
-//             display_a.textContent = button.value;
+        console.log(operator);
 
-//             console.log(num1_dis);
-//         }
 
-//     });
-// });
+    });
+});
+
+
+
+
+
+eq_button.addEventListener('click', () => {
+    
+    console.log(operate(num1, operator, num2));
+
+    num_ed = false;
+
+    num1 = "";
+    num2 = "";
+});
+
+
+

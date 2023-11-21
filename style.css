@@ -33,7 +33,7 @@
     font-size: 40px;
 }
 
-.box, .box-o {
+button{
     border: 1px solid grey;
     flex-basis: 125px;
     padding: 25px;
