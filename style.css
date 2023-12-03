@@ -44,3 +44,13 @@ button{
     flex-basis: 250px;
     padding: 25px;
 }
+
+button:active {
+    background-color: black;
+    color: white;
+  }
+
+.btnSpecial {
+    background-color: black;
+    color: white;
+}
