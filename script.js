@@ -25,9 +25,9 @@ let const_num2 = "";
 
 
 // Debounce variables
-let e_debounce = false;
+let dot_debounce = false;
 
-let o_debounce = false; // Might now need this
+let o_debounce = false;
 
 
 // Functions
@@ -68,6 +68,26 @@ num_buttons.forEach(button => {
             document.querySelector('.btnSpecial')?.classList.remove('btnSpecial');
         }
     });
+});
+
+dot_button.addEventListener('click', () => {
+    if (dot_debounce == false) {
+        if (o_debounce == false) {
+            num1 += ".";
+            display_a.textContent = num1;
+    
+        } else if (o_debounce == true) {
+            if (num2 == "") {
+                num2 = "0.";
+                display_a.textContent = num2;
+            } else if (num2 != "") {
+                num2 += ".";
+                display_a.textContent = num2;
+            }
+        };
+    };
+
+    dot_debounce = true;
 });
 
 
@@ -120,6 +140,8 @@ o_buttons.forEach(button => {
         }
 
         operator = button.value;
+
+        dot_debounce = false;
     });
 });
 
@@ -135,6 +157,8 @@ eq_button.addEventListener('click', () => {
     } else {
         display_a.textContent = num1;
     }
+
+    dot_debounce = false;
     
     document.querySelector('.btnSpecial')?.classList.remove('btnSpecial');
 });
@@ -148,6 +172,7 @@ clear_button.addEventListener('click', () => {
     num2 = "";
     operator = "";
 
+    dot_debounce = false;
     o_debounce = false;
 
     document.querySelector('.btnSpecial')?.classList.remove('btnSpecial');
