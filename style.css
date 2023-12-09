@@ -12,23 +12,34 @@
 .container-a, .container-b, .container-c {
     display: flex;
     justify-content: center;
+
+    padding: 10px;
+    background-color: grey;
 }
 
 .container-c {
     flex-direction: column;
     border: 1px solid grey;
+
+    background-color: grey;
+}
+
+.display-a, .display-b {
+    background-color: white;
+    padding: 22px;
+
 }
 
 .display-b {
     flex-basis: 20px;
-    padding: 30px;
+    /* padding: 30px; */
     text-align: end;
     font-size: 30px;
 }
 
 .display-a {
     flex-basis: 25px;
-    padding: 30px;
+    /* padding: 30px; */
     text-align: end;
     font-size: 40px;
 }
@@ -36,7 +47,10 @@
 button{
     border: 1px solid grey;
     flex-basis: 125px;
-    padding: 25px;
+    padding: 15px;
+    margin: 1px;
+
+    border-radius: 5px;
 }
 
 .clear, .delete {
