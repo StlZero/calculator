@@ -16,6 +16,8 @@ const delete_button = document.querySelector('.delete')
 
 const clear_button = document.querySelector('.clear')
 
+let operator_button;
+
 // Operation variables
 let num1 = "0";
 let num2 = "";
@@ -125,6 +127,7 @@ delete_button.addEventListener('click', () => {
 
 o_buttons.forEach(button => {
     button.addEventListener('click', () => {
+        operator_button = button.textContent;
 
         if (o_debounce == true) {
             if (num2 == "") {
@@ -149,6 +152,7 @@ o_buttons.forEach(button => {
 
 eq_button.addEventListener('click', () => {
     if (o_debounce == true) {
+        display_b.textContent = num1 + operator_button + num2 + '=';
         num1 = operate(num1, operator, num2).toString();
         display_a.textContent = num1;
     
@@ -167,6 +171,7 @@ eq_button.addEventListener('click', () => {
 
 clear_button.addEventListener('click', () => {
     display_a.textContent = 0;
+    display_b.textContent = 0;
 
     num1 = "0";
     num2 = "";
